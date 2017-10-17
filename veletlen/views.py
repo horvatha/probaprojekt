@@ -8,7 +8,7 @@ def index(request):
         "Néma gyereknek az anyja se látja a fátol az erdőt.",
         "Áfásszámlaigényét kérjük előre jelezze",
         "A nyúlon túl.",
-    ]
+    ] * 8
     context = {
         "idezetek": idezetek,
         "veletlen_idezet": random.choice(idezetek)

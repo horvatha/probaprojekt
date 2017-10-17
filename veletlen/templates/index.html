@@ -1,8 +1,17 @@
 <b>Itt véletlen idézetek lesznek hamarosan.</b>
 
 {%  for idezet in idezetek %}
-<p>{{idezet}}</p>
+<p>{{forloop.counter}}. {{idezet}} {% autoescape off %} — {% endautoescape %}{{idezet.title}} — {{idezet | slugify}}</p>
+{% if forloop.counter|divisibleby:"3" %}<hr>{% endif %}
 {% endfor %}
+
+<p>
+{% if idezetek %}
+{{idezetek | length}} idézet van.
+{% else %}
+Nincs idézet.
+{% endif %}
+</p>
 
 <p><b>A véletlen idézet:</b>  {{veletlen_idezet}}</p>
 
