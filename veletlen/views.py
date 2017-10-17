@@ -1,10 +1,16 @@
 from django.shortcuts import render
+import random
+
 
 def index(request):
-    context = {"idezetek": [
-     "Nem esik messze",
-     "Néma gyereknek az anyja se látja a fátol az erdőt.",
-     "Áfásszámlaigényét kérjük előre jelezze",
-     "A nyúlon túl.",
-    ]}
+    idezetek = [
+        "Nem esik messze",
+        "Néma gyereknek az anyja se látja a fátol az erdőt.",
+        "Áfásszámlaigényét kérjük előre jelezze",
+        "A nyúlon túl.",
+    ]
+    context = {
+        "idezetek": idezetek,
+        "veletlen_idezet": random.choice(idezetek)
+    }
     return render(request, "index.html", context)
